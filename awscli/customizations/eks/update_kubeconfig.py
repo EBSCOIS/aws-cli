@@ -332,11 +332,10 @@ class EKSClient(object):
                 "-r",
                 self._role_arn
             ])
-	
-	if self._session.profile:
+        
+        if self._session.profile:
             generated_user["user"]["exec"]["env"] = [OrderedDict([
                 ("name", "AWS_PROFILE"),
                 ("value", self._session.profile)
             ])]
-
         return generated_user
